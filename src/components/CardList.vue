@@ -21,6 +21,11 @@ export default {
             required:true,
         }
     },
+    methods:{
+        deleteTask(){
+            
+        }
+    }
 }
 </script>
 
