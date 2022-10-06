@@ -20,7 +20,7 @@
             </b-form-group>
 
             <div class="buttonGroup">
-                <b-button type="submit" variant="primary">{{ !editStatus ? 'Submit' : 'Edit' }}</b-button>
+                <b-button type="submit" variant="primary">Submit</b-button>
                 <b-button  @click="clearInput" variant="outline-danger">Clear</b-button>
             </div>   
         </b-form>
@@ -33,7 +33,6 @@ export default {
         return{
             enteredContent:'',
             enteredCategory:'',
-            editStatus: false,
         }
     },
     methods:{
