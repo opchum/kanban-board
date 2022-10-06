@@ -18,5 +18,6 @@ export default {
 .hello{
   text-align: center;
   margin: 20px;
+  font-weight: bolder;
 }
 </style>
