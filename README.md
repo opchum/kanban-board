@@ -1,5 +1,11 @@
 # kanban-board
-
+##Upcoming Update
+```
+Local Storage (Dexie)
+Refactor Code (Delete Function) & Make Section Card into Components
+Edit Tasks Function
+Drag & Drop
+```
 ## Project setup
 ```
 npm install
