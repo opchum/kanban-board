@@ -142,7 +142,7 @@ export default {
       }
     },
     deleteTask(taskId) {
-      //delete a specific task
+      //delete a specific task then will check the id at each section, if no detect id , then just filter back original
       this.backlogTasks = this.backlogTasks.filter(task => task.id !== taskId);
       this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
       this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
