@@ -7,7 +7,8 @@ so the 4 Card Section (Backlog, In Progress, Testing, Done) is hard-coded
 ## Upcoming Update
 ```
 Local Storage (Dexie)
-Refactor Code (Delete Function) & Make Section Card into Components
+Refactor Code (Delete Function) Line 155-159 (App.vue)
+Make Section Card into Components
 Edit Tasks Function
 Drag & Drop
 ```
