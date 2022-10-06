@@ -145,18 +145,17 @@ export default {
         })
       }
     },
-    deleteTask(taskId) {
-      //delete a specific task then will check the id at each section, if no detect id , then just filter back original
-      this.backlogTasks = this.backlogTasks.filter(task => task.id !== taskId);
-      this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
-      this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
-      this.doneTasks = this.doneTasks.filter(task => task.id !== taskId);
-    },
-    // TRYING TO REFACTOR THE DELETE FUNCTION
-    // deleteTask(taskId, taskCategory){
-    //   const sectionTask =`${taskCategory}Tasks`
-    //   this.sectionTask = this.sectionTask.filter(task => task.id !== taskId);
-    // }
+    // deleteTask(taskId) {
+    //   //delete a specific task then will check the id at each section, if no detect id , then just filter back original
+    //   this.backlogTasks = this.backlogTasks.filter(task => task.id !== taskId);
+    //   this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
+    //   this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
+    //   this.doneTasks = this.doneTasks.filter(task => task.id !== taskId);
+    // },
+    // refactored delete function
+    deleteTask(taskId, taskCategory){
+      this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].filter(task => task.id !== taskId);
+    }
   }
 }
 </script>
