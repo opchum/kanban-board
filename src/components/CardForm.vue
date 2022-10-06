@@ -59,7 +59,7 @@ export default {
     margin: 20px auto;
     padding: 10px;
     border: 1px solid black;
-    min-width: 300px;
+    min-width: 200px;
     max-width: 600px;
     background-color: white;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
