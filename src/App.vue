@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     addTask(content,category){
-      //push the input into the "friend" array
+      //push the input into the task array based on their category by using if else
       if (content && category=="backlog"){
         this.backlogTasks.push({
           id: new Date().toString(),
