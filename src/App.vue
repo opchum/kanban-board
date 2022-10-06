@@ -139,7 +139,7 @@ export default {
           content: content,
           category: category,
         })
-      } 
+      }
     }
   }
 }

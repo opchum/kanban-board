@@ -22,8 +22,8 @@ export default {
         }
     },
     methods:{
-        deleteTask(){
-            
+        deleteTask(id, category){
+            this.$emit('delete-task',id,category)
         }
     }
 }

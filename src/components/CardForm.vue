@@ -3,7 +3,6 @@
     <div class="formBody">
         <b-form @submit.prevent="submitData" >
             <b-form-group id="input-group-1" class="formGroup">
-                <label for="input-1">Enter Task:</label>
                 <b-form-input id="input-1" v-model="enteredContent" type="text" placeholder="Enter Task" required>
                 </b-form-input>
             </b-form-group>
@@ -46,6 +45,9 @@ export default {
             this.enteredContent,
             this.enteredCategory
             )
+            //clear the input field once submit
+            this.enteredContent = '',
+            this.enteredCategory = ''
         }
     }
 }
