@@ -114,26 +114,26 @@ export default {
   methods: {
     addTask(content,category){
       //push the input into the task array based on their category by using if else
-      if (content && category=="backlog"){
+      if (category=="backlog"){
         this.backlogTasks.push({
           id: new Date().toString(),
           content: content,
           category: category,
         })
-      } else if (content && category == "inprogress"){
+      } else if (category == "inprogress"){
         this.inprogressTasks.push({
           id: new Date().toString(),
           content: content,
           category: category,
         })
-      } else if (content && category == "testing") {
+      } else if (category == "testing") {
         this.testingTasks.push({
           id: new Date().toString(),
           content: content,
           category: category,
         })
       } 
-      else if (content && category == "done") {
+      else if (category == "done") {
         this.doneTasks.push({
           id: new Date().toString(),
           content: content,
