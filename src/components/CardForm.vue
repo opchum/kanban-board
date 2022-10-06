@@ -7,7 +7,7 @@
                 </b-form-input>
             </b-form-group>
     
-            <b-form-group>
+            <b-form-group class="formGroup">
                 <label class="m-2">Choose Category:</label>
                 <b-form-radio v-model="enteredCategory"  name="category-radios" value="backlog" required class="m-1">Backlog
                 </b-form-radio>
@@ -55,23 +55,27 @@ export default {
 
 <style scoped>
 .formBody{
-    background-color: transparent;
     border-radius: 10px;
     margin: 20px auto;
     padding: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     min-width: 300px;
     max-width: 600px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.formBody:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .formGroup{
     margin: 10px auto;
+    border-radius: 10px;
 }
 
 .buttonGroup{
     display:flex;
     justify-content: space-around;
 }
-
-
 </style>

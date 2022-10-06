@@ -2,8 +2,9 @@
   <div id="app">
     <HelloWorld msg="AUGHHHHHHHHHHHHHHHH" />
     <div class="row">
-      <div class="col-md-3">
-        <b-card 
+      <div class="cardParent col-md-3">
+        <b-card
+        class="cardBody"
         border-variant="primary" 
         header='Backlog'
         header-bg-variant="primary" 
@@ -20,8 +21,9 @@
             />
         </b-card>
       </div>
-      <div class="col-md-3">
-        <b-card 
+      <div class="cardParent col-md-3">
+        <b-card
+        class="cardBody"
         border-variant="secondary" 
         header='In Progress'
         header-bg-variant="secondary" 
@@ -38,8 +40,9 @@
             />
         </b-card>
       </div>
-      <div class="col-md-3">
-        <b-card 
+      <div class="cardParent col-md-3">
+        <b-card
+        class="cardBody"
         border-variant="dark" 
         header='Testing'
         header-bg-variant="dark" 
@@ -56,8 +59,9 @@
             />
         </b-card>
       </div>
-      <div class="col-md-3">
+      <div class="cardParent col-md-3">
         <b-card 
+        class="cardBody"
         border-variant="success" 
         header='Done'
         header-bg-variant="success" 
@@ -147,7 +151,12 @@ export default {
       this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
       this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
       this.doneTasks = this.doneTasks.filter(task => task.id !== taskId);
-    }
+    },
+    // TRYING TO REFACTOR THE DELETE FUNCTION
+    // deleteTask(taskId, taskCategory){
+    //   const sectionTask =`${taskCategory}Tasks`
+    //   this.sectionTask = this.sectionTask.filter(task => task.id !== taskId);
+    // }
   }
 }
 </script>
@@ -163,22 +172,21 @@ export default {
   height: 100vh;
   background-color: rgb(227, 227, 227);
 }
-.formBody {
-  background-color: white;
-  border-radius: 10px;
-  margin: 20px auto;
-  padding: 10px;
-  border: 2px solid black;
-  min-width: 300px;
-  max-width: 600px;
-}
-
-.formGroup {
-  margin: 10px auto;
-}
 
 .buttonGroup {
   display: flex;
   justify-content: space-around;
+}
+
+.cardParent{
+  padding: 10px;
+}
+
+.cardBody{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cardBody:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 </style>

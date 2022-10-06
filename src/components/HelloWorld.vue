@@ -15,7 +15,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1{
+.hello{
   text-align: center;
+  margin: 20px;
 }
 </style>
