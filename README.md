@@ -2,7 +2,7 @@
 ## Warning
 ```
 Component for CardBase.vue is not working right now,
-so the 4 Card Section is hard-coded
+so the 4 Card Section (Backlog, In Progress, Testing, Done) is hard-coded
 ```
 ## Upcoming Update
 ```
