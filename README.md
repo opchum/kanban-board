@@ -1,5 +1,16 @@
 # kanban-board
-
+## Warning
+```
+Component for CardBase.vue is not working right now,
+so the 4 Card Section (Backlog, In Progress, Testing, Done) is hard-coded
+```
+## Upcoming Update
+```
+Local Storage (Dexie)
+Refactor Code (Delete Function) & Make Section Card into Components
+Edit Tasks Function
+Drag & Drop
+```
 ## Project setup
 ```
 npm install
