@@ -8,7 +8,7 @@
             </b-form-group>
     
             <b-form-group>
-                <label>Choose Category:</label>
+                <label class="m-2">Choose Category:</label>
                 <b-form-radio v-model="enteredCategory"  name="category-radios" value="backlog" required class="m-1">Backlog
                 </b-form-radio>
                 <b-form-radio v-model="enteredCategory"  name="category-radios" value="inprogress" required class="m-1">In Progress
