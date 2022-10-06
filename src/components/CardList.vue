@@ -1,6 +1,6 @@
 <template>
     <div class="textBody">
-        <b-card-text class="text">{{content}} ({{category}})</b-card-text>
+        <b-card-text class="text">{{content}}</b-card-text>
         <b-icon class="deleteButton" @click="deleteTask" icon="trash-fill"></b-icon>
     </div>
 </template>
@@ -22,10 +22,11 @@ export default {
         }
     },
     methods:{
-        deleteTask(id, category){
-            this.$emit('delete-task',id,category)
+        deleteTask(){
+            this.$emit('delete-task',this.id,this.category)
         }
-    }
+    },
+    emits: ['delete-task'],
 }
 </script>
 

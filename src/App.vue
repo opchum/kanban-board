@@ -92,7 +92,7 @@ export default {
     // CardBase,
     CardForm,
     CardList
-},
+  },
   data() {
     return {
       enteredContent: '',
@@ -140,6 +140,13 @@ export default {
           category: category,
         })
       }
+    },
+    deleteTask(taskId) {
+      //delete a specific task
+      this.backlogTasks = this.backlogTasks.filter(task => task.id !== taskId);
+      this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
+      this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
+      this.doneTasks = this.doneTasks.filter(task => task.id !== taskId);
     }
   }
 }
