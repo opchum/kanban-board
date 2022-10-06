@@ -1,7 +1,10 @@
 <template>
     <div class="textBody">
         <b-card-text class="text">{{content}}</b-card-text>
-        <b-icon class="deleteButton" @click="deleteTask" icon="trash-fill"></b-icon>
+        <div class="buttonGroup">
+            <b-icon class="editButton" icon="pencil-fill"></b-icon>
+            <b-icon class="deleteButton" @click="deleteTask" icon="trash-fill"></b-icon>
+        </div>    
     </div>
 </template>
 
@@ -34,28 +37,38 @@ export default {
 .textBody{
         display: flex;
         justify-content: space-between;
-        background-color: rgb(204, 204, 204);
+        background-color: grey;
+        color: white;
         padding: 15px;
         border-radius: 5px;
         margin: 10px 0;
         align-items: center;
-        color:rgb(31, 31, 33);
     }
-
+        
     .textBody:hover{
-        background-color: grey;
-        color:white;
+        background-color: rgb(204, 204, 204);
+        color: rgb(31, 31, 33);
     }
 
     .text{
         margin: auto 0 ;
     }
 
-    .deleteButton{
+    .buttonGroup{
+        display: flex;
+        padding: auto 5px;
+    }
+
+    .deleteButton, .editButton{
         cursor:pointer;
+        margin: 0 10px;
+    }
+
+    .editButton:hover {
+        color: green;
     }
 
     .deleteButton:hover {
-        color:rgb(126, 0, 0);
+        color:red;
     }
 </style>
