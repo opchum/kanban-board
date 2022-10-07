@@ -7,7 +7,7 @@
                 <b-icon class="deleteIcon" @click="deleteTask" icon="trash-fill"></b-icon>
             </div>    
         </div>
-        <div v-show="editStatus" class="editBody">
+        <div v-show="!editStatus" class="editBody">
             <b-form-input id="editInput" v-model="enteredContent" type="text" placeholder="Enter Task" required>
             </b-form-input>
             <b-button type="submit"    class="editButton" variant="warning">Edit</b-button>

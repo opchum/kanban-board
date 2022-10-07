@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="header">
     <h1>{{ msg }}</h1>
+      <b-button class="clearAll" variant="danger">Clear All</b-button>
   </div>
 </template>
 
@@ -15,9 +16,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello{
+.header{
   text-align: center;
   margin: 20px;
   font-weight: bolder;
+  display: flex;
+  align-items: center;
 }
 </style>
