@@ -8,7 +8,6 @@ Used traditional CSS instead of SCSS/SASS due to some npm install error
 ## Upcoming Update
 ```
 Local Storage (Dexie)
-Refactor Code (Delete Function) Line 155-159 (App.vue)
 Make Section Card into Components
 Edit Tasks Function
 Drag & Drop
