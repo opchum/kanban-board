@@ -11,6 +11,7 @@
             <b-form-input id="editInput" v-model="enteredContent" type="text" placeholder="Enter Task" required>
             </b-form-input>
             <b-button type="submit"    class="editButton" variant="warning">Edit</b-button>
+            <b-button class="cancelButton" @click="editMode" variant="danger">Cancel</b-button>
         </div>
     </div>
 </template>
@@ -40,11 +41,14 @@ export default {
         deleteTask(){
             this.$emit('delete-task',this.id,this.category)
         },
+        editTask(){
+            this.$emit('edit-task',this.id,this.content,this.category)
+        },
         editMode(){
             this.editStatus=!this.editStatus
         }
     },
-    emits: ['delete-task'],
+    emits: ['delete-task','edit-task'],
 }
 </script>
 
@@ -92,8 +96,14 @@ export default {
     }
 
     .editButton{
+        border-radius:0px;
+        min-width: 80px;
+    }
+
+    .cancelButton {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
+        min-width: 80px;
     }
 
     #editInput{

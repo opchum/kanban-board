@@ -1,7 +1,6 @@
 <template>
   <div class="header">
     <h1>{{ msg }}</h1>
-      <b-button class="clearAll" variant="danger">Clear All</b-button>
   </div>
 </template>
 
@@ -22,5 +21,6 @@ export default {
   font-weight: bolder;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 </style>
