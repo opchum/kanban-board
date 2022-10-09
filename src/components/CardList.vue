@@ -75,6 +75,7 @@ export default {
 
     .text{
         margin: auto 0 ;
+        word-break: break-word;
     }
 
     .iconGroup{
