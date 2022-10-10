@@ -75,6 +75,7 @@
             :content = "task.content"
             :category = "task.category"
             @delete-task="deleteTask"
+            @edit-task="editTask"
             />
         </b-card>
       </div>
@@ -116,45 +117,30 @@ export default {
     }
   },
   methods: {
-    addTask(content,category){
-      //push the input into the task array based on their category by using if else
-      if (category=="backlog"){
-        this.backlogTasks.push({
-          id: new Date().toString(),
-          content: content,
-          category: category,
-        })
-      } else if (category == "inprogress"){
-        this.inprogressTasks.push({
-          id: new Date().toString(),
-          content: content,
-          category: category,
-        })
-      } else if (category == "testing") {
-        this.testingTasks.push({
-          id: new Date().toString(),
-          content: content,
-          category: category,
-        })
-      } 
-      else if (category == "done") {
-        this.doneTasks.push({
-          id: new Date().toString(),
-          content: content,
-          category: category,
-        })
-      }
+    addTask(content, category) {
+      //push the input into the task array based on their category
+      this[category+"Tasks"].push({
+        id: new Date().toString(),
+        content: content,
+        category: category,
+      })
     },
-    // deleteTask(taskId) {
-    //   //delete a specific task then will check the id at each section, if no detect id , then just filter back original
-    //   this.backlogTasks = this.backlogTasks.filter(task => task.id !== taskId);
-    //   this.inprogressTasks = this.inprogressTasks.filter(task => task.id !== taskId);
-    //   this.testingTasks = this.testingTasks.filter(task => task.id !== taskId);
-    //   this.doneTasks = this.doneTasks.filter(task => task.id !== taskId);
-    // },
-    // refactored delete function
+
     deleteTask(taskId, taskCategory){
       this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].filter(task => task.id !== taskId);
+    },
+
+    // editTask(taskId,taskCategory,taskEntered){
+    //   const elementIndex = this[taskCategory + 'Tasks'].findIndex((task => task.id == taskId));
+    //   this[taskCategory + 'Tasks'][elementIndex].content = taskEntered;
+    // },
+
+    editTask(taskId, taskCategory, taskEntered) {
+      this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].map(task =>{
+        if (task.id == taskId){
+          return {...task, content: taskEntered};
+        }
+      })
     }
   }
 }
