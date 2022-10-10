@@ -8,9 +8,9 @@
             </div>    
         </div>
         <div v-show="!editStatus" class="editBody">
-            <b-form-input id="editInput" v-model="enteredContent" type="text" placeholder="Enter Task" required>
+            <b-form-input id="editInput" v-model="enteredEdit" type="text" placeholder="Enter Task" required>
             </b-form-input>
-            <b-button type="submit"  @click="editTask"  class="editButton" variant="warning">Edit</b-button>
+            <b-button class="editButton" @click="editTask" variant="warning">Edit</b-button>
             <b-button class="cancelButton" @click="editMode" variant="danger">Cancel</b-button>
         </div>
     </div>
@@ -21,7 +21,7 @@ export default {
     data(){
         return{
             editStatus:true,
-            enteredContent:'',
+            enteredEdit:'',
         }
     },
     props:{
@@ -43,7 +43,8 @@ export default {
             this.$emit('delete-task',this.id,this.category)
         },
         editTask(){
-            this.$emit('edit-task',this.id,this.content,this.category,this.enteredContent)
+            this.$emit('edit-task',this.id,this.category,this.enteredEdit)
+            this.editStatus = !this.editStatus
         },
         editMode(){
             this.editStatus=!this.editStatus

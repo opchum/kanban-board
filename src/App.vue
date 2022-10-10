@@ -18,6 +18,7 @@
             :content = "task.content"
             :category = "task.category"
             @delete-task="deleteTask"
+            @edit-task="editTask"
             />
         </b-card>
       </div>
@@ -37,6 +38,7 @@
             :content = "task.content"
             :category = "task.category"
             @delete-task="deleteTask"
+            @edit-task="editTask"
             />
         </b-card>
       </div>
@@ -56,6 +58,7 @@
             :content = "task.content"
             :category = "task.category"
             @delete-task="deleteTask"
+            @edit-task="editTask"
             />
         </b-card>
       </div>
@@ -130,18 +133,18 @@ export default {
       this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].filter(task => task.id !== taskId);
     },
 
-    // editTask(taskId,taskCategory,taskEntered){
-    //   const elementIndex = this[taskCategory + 'Tasks'].findIndex((task => task.id == taskId));
-    //   this[taskCategory + 'Tasks'][elementIndex].content = taskEntered;
-    // },
+    // editTask(taskId, taskCategory, taskEntered) {
+    //   this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].map(task =>{
+    //     if (task.id == taskId){
+    //       return {...task, content: taskEntered};
+    //     }
+    //   })
+    // }
 
-    editTask(taskId, taskCategory, taskEntered) {
-      this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].map(task =>{
-        if (task.id == taskId){
-          return {...task, content: taskEntered};
-        }
-      })
-    }
+    editTask(taskId,taskCategory,taskEntered){
+      const elementIndex = this[taskCategory + 'Tasks'].findIndex((task => task.id == taskId));
+      this[taskCategory + 'Tasks'][elementIndex].content = taskEntered;
+    },
   }
 }
 </script>
