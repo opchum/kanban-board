@@ -1,4 +1,10 @@
 # kanban-board
+## Added Features
+```
+Add Task
+Delete Task
+Edit Task
+```
 ## Warning
 ```
 Component for CardBase.vue is not working right now,
@@ -8,9 +14,8 @@ Used traditional CSS instead of SCSS/SASS due to some npm install error
 ## Upcoming Update
 ```
 Local Storage (Dexie)
-Make Section Card into Components
-Edit Tasks Function
 Drag & Drop
+Make Section Card into Components
 ```
 ## Project setup
 ```
