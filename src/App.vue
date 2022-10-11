@@ -135,6 +135,11 @@ export default {
   },
   methods: {
     async addTask(content, category) {
+      // this[category + "Tasks"].push({
+      //   id: new Date().toString(),
+      //   content: content,
+      //   category: category,
+      // })
       await db[category+"Tasks"].add({
         content: content,
         category: category,
