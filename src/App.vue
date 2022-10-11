@@ -92,10 +92,11 @@
 // import CardBase from './components/CardBase.vue'
 // import draggable from "vuedraggable"
 import { db } from './db'
-import CardForm from './components/CardForm.vue'
-import CardList from './components/CardList.vue'
 import { liveQuery } from 'dexie'
 import { useObservable } from "@vueuse/rxjs";
+import CardForm from './components/CardForm.vue'
+import CardList from './components/CardList.vue'
+
 
 export default {
   name: 'App',
