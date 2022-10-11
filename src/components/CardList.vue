@@ -45,6 +45,7 @@ export default {
         editTask(){
             this.$emit('edit-task',this.id,this.category,this.enteredEdit)
             this.editStatus = !this.editStatus
+            this.enteredEdit=''
         },
         editMode(){
             this.editStatus=!this.editStatus

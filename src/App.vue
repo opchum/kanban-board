@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="AUGHHHHHHHHHHHHHHHH" />
+    <!-- <HelloWorld msg="AUGHHHHHHHHHHHHHHHH" /> -->
     <div class="row">
       <div class="cardParent col-md-3">
         <b-card
@@ -11,15 +11,15 @@
         header-text-variant="white"
         align="center">
             <!-- List -->
-            <CardList
-            v-for="task in backlogTasks"
-            :key="task.id"
-            :id="task.id"
-            :content = "task.content"
-            :category = "task.category"
-            @delete-task="deleteTask"
-            @edit-task="editTask"
-            />
+              <CardList
+              v-for="task in backlogTasks"
+              :key="task.id"
+              :id="task.id"
+              :content = "task.content"
+              :category = "task.category"
+              @delete-task="deleteTask"
+              @edit-task="editTask"
+              />
         </b-card>
       </div>
       <div class="cardParent col-md-3">
@@ -31,15 +31,15 @@
         header-text-variant="white"
         align="center">
             <!-- List -->
-            <CardList
-            v-for="task in inprogressTasks"
-            :key="task.id"
-            :id="task.id"
-            :content = "task.content"
-            :category = "task.category"
-            @delete-task="deleteTask"
-            @edit-task="editTask"
-            />
+              <CardList
+              v-for="task in inprogressTasks"
+              :key="task.id"
+              :id="task.id"
+              :content = "task.content"
+              :category = "task.category"
+              @delete-task="deleteTask"
+              @edit-task="editTask"
+              />
         </b-card>
       </div>
       <div class="cardParent col-md-3">
@@ -88,62 +88,70 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import CardBase from './components/CardBase.vue'
+// import draggable from "vuedraggable"
+import { db } from './db'
 import CardForm from './components/CardForm.vue'
 import CardList from './components/CardList.vue'
+import { liveQuery } from 'dexie'
+import { useObservable } from "@vueuse/rxjs";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    // HelloWorld,
     // CardBase,
+    // draggable,
     CardForm,
-    CardList
+    CardList,
+  },
+  setup(){
+    return{
+      db,
+      backlogTasks: useObservable(
+        liveQuery(() => db.backlogTasks.toArray())
+      ),
+      inprogressTasks: useObservable(
+        liveQuery(() => db.inprogressTasks.toArray())
+      ),
+      testingTasks: useObservable(
+        liveQuery(() => db.testingTasks.toArray())
+      ),
+      doneTasks: useObservable(
+        liveQuery(() => db.doneTasks.toArray())
+      ),
+    }
   },
   data() {
     return {
       enteredContent: '',
       enteredCategory: '',
-      backlogTasks: [
-        
-      ],
-      inprogressTasks: [
-        
-      ],
-      testingTasks: [
-
-      ],
-      doneTasks: [
-
-      ]
+      // backlogTasks: [],
+      // inprogressTasks: [],
+      // testingTasks: [],
+      // doneTasks: [],
     }
   },
   methods: {
-    addTask(content, category) {
-      //push the input into the task array based on their category
-      this[category+"Tasks"].push({
-        id: new Date().toString(),
+    async addTask(content, category) {
+      await db[category+"Tasks"].add({
         content: content,
         category: category,
       })
     },
 
-    deleteTask(taskId, taskCategory){
-      this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].filter(task => task.id !== taskId);
+    async deleteTask(taskId, taskCategory){
+      // this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].filter(task => task.id !== taskId);
+      await db[taskCategory + 'Tasks'].delete(taskId)
     },
 
-    // editTask(taskId, taskCategory, taskEntered) {
-    //   this[taskCategory + 'Tasks'] = this[taskCategory + 'Tasks'].map(task =>{
-    //     if (task.id == taskId){
-    //       return {...task, content: taskEntered};
-    //     }
-    //   })
-    // }
-
-    editTask(taskId,taskCategory,taskEntered){
-      const elementIndex = this[taskCategory + 'Tasks'].findIndex((task => task.id == taskId));
-      this[taskCategory + 'Tasks'][elementIndex].content = taskEntered;
+    async editTask(taskId,taskCategory,taskEntered){
+      // const elementIndex = this[taskCategory + 'Tasks'].findIndex((task => task.id == taskId));
+      // this[taskCategory + 'Tasks'][elementIndex].content = taskEntered;
+      await db[taskCategory + 'Tasks'].update(taskId, {
+        "content": taskEntered
+      });
     },
   }
 }
