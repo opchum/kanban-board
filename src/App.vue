@@ -166,7 +166,6 @@ export default {
   padding: 50px 30px;
   width:100%;
   height: 100vh;
-  background-color: rgb(227, 227, 227);
 }
 
 .buttonGroup {
