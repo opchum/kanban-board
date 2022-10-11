@@ -2,9 +2,6 @@
   <div id="app">
     <HeaderSection msg="Kanban" />
     <div class="row">
-      <!-- <div style="display:none">
-        {{categoryIfElse()}}
-      </div> -->
       <div class="cardParent col-md-3">
         <b-card
         class="cardBody"
@@ -175,7 +172,7 @@ export default {
       console.log(taskId)
     },
     startendPoint(taskId){
-      //find the start point and end point , here change 
+      //find the start point and end point
       console.log(taskId.clone.className)
       console.log(taskId.to.className)
     },
