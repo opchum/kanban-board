@@ -4,6 +4,7 @@
 Add Task
 Delete Task
 Edit Task
+Dexie 
 ```
 ## Warning
 ```
@@ -13,9 +14,7 @@ Used traditional CSS instead of SCSS/SASS due to some npm install error
 ```
 ## Upcoming Update
 ```
-Local Storage (Dexie)
 Drag & Drop
-Make Section Card into Components
 ```
 ## Project setup
 ```
