@@ -27,9 +27,9 @@ export default {
   align-items: center;
   background-color: white;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: auto;
   border-bottom: 1px solid black;
-  height:80px;
+  height:70px;
 }
 
 .header:hover {

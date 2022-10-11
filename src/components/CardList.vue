@@ -8,10 +8,9 @@
             </div>    
         </div>
         <div v-show="!editStatus" class="editBody">
-            <b-form-input id="editInput" v-model="enteredEdit" type="text" placeholder="Enter Task" required>
-            </b-form-input>
-            <b-button class="editButton" @click="editTask" variant="warning">Edit</b-button>
-            <b-button class="cancelButton" @click="editMode" variant="danger">Cancel</b-button>
+            <b-form-input id="editInput" v-model="enteredEdit" type="text" placeholder="Enter Task" required></b-form-input>
+            <b-button class="editButton" @click="editTask" variant="warning"><b-icon icon="check" style="width: 24px; height: 24px;"></b-icon></b-button>
+            <b-button class="cancelButton" @click="editMode" variant="danger"><b-icon icon="x" style="width: 24px; height: 24px;"></b-icon></b-button>
         </div>
     </div>
 </template>
@@ -101,13 +100,15 @@ export default {
 
     .editButton{
         border-radius:0px;
-        min-width: 80px;
+        min-width: 50px;
+        font-size: 12px;
     }
 
     .cancelButton {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
-        min-width: 80px;
+        min-width: 50px;
+        font-size: 12px;
     }
 
     #editInput{
