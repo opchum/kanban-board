@@ -12,9 +12,9 @@ Component for CardBase.vue is not working right now,
 so the 4 Card Section (Backlog, In Progress, Testing, Done) is hard-coded
 Used traditional CSS instead of SCSS/SASS due to some npm install error
 ```
-## Upcoming Update
+### Problem/Issues
 ```
-Drag & Drop
+Drag and Drop worked, but when the page is refreshed the dragged list is back to its original place
 ```
 ## Project setup
 ```
