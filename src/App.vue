@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="AUGHHHHHHHHHHHHHHHH" /> -->
+    <HeaderSection msg="Kanban" />
     <div class="row">
+      <!-- <div style="display:none">
+        {{categoryIfElse()}}
+      </div> -->
       <div class="cardParent col-md-3">
         <b-card
         class="cardBody"
@@ -11,6 +14,7 @@
         header-text-variant="white"
         align="center">
             <!-- List -->
+            <draggable class="list-group backlog" @change="categoryChange" @end="startendPoint" :lists="backlogTasks" group="tasks">
               <CardList
               v-for="task in backlogTasks"
               :key="task.id"
@@ -20,17 +24,19 @@
               @delete-task="deleteTask"
               @edit-task="editTask"
               />
+            </draggable>
         </b-card>
       </div>
       <div class="cardParent col-md-3">
         <b-card
-        class="cardBody"
+        class="cardBody inprogress"
         border-variant="secondary" 
         header='In Progress'
         header-bg-variant="secondary" 
         header-text-variant="white"
         align="center">
             <!-- List -->
+            <draggable class="list-group inprogress" @change="categoryChange" @end="startendPoint" :lists="inprogressTasks" group="tasks">
               <CardList
               v-for="task in inprogressTasks"
               :key="task.id"
@@ -40,17 +46,19 @@
               @delete-task="deleteTask"
               @edit-task="editTask"
               />
+            </draggable>
         </b-card>
       </div>
       <div class="cardParent col-md-3">
         <b-card
-        class="cardBody"
+        class="cardBody testing"
         border-variant="dark" 
         header='Testing'
         header-bg-variant="dark" 
         header-text-variant="white"
         align="center">
             <!-- List -->
+            <draggable class="list-group testing" @change="categoryChange" @end="startendPoint" :lists="testingTasks" group="tasks">
             <CardList
             v-for="task in testingTasks"
             :key="task.id"
@@ -60,17 +68,19 @@
             @delete-task="deleteTask"
             @edit-task="editTask"
             />
+            </draggable>
         </b-card>
       </div>
       <div class="cardParent col-md-3">
         <b-card 
-        class="cardBody"
+        class="cardBody done"
         border-variant="success" 
         header='Done'
         header-bg-variant="success" 
         header-text-variant="white"
         align="center">
             <!-- List -->
+            <draggable class="list-group done" @change="categoryChange" @end="startendPoint" :lists="doneTasks" group="tasks">
             <CardList
             v-for="task in doneTasks"
             :key="task.id"
@@ -80,6 +90,7 @@
             @delete-task="deleteTask"
             @edit-task="editTask"
             />
+            </draggable>
         </b-card>
       </div>
     </div>
@@ -88,9 +99,9 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import HeaderSection from './components/HeaderSection.vue'
 // import CardBase from './components/CardBase.vue'
-// import draggable from "vuedraggable"
+import draggable from "vuedraggable"
 import { db } from './db'
 import { liveQuery } from 'dexie'
 import { useObservable } from "@vueuse/rxjs";
@@ -101,9 +112,9 @@ import CardList from './components/CardList.vue'
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
+    HeaderSection,
     // CardBase,
-    // draggable,
+    draggable,
     CardForm,
     CardList,
   },
@@ -159,6 +170,18 @@ export default {
         "content": taskEntered
       });
     },
+    categoryChange(taskId){
+      //detect data for the lists that i wanted to move
+      console.log(taskId)
+    },
+    startendPoint(taskId){
+      //find the start point and end point , here change 
+      console.log(taskId.clone.className)
+      console.log(taskId.to.className)
+    },
+    categoryIfElse(){
+      //if else statement for class changes from point A to point B
+    }    
   }
 }
 </script>
@@ -169,9 +192,14 @@ export default {
 }
 #app {
   font-family: sans-serif;
-  padding: 50px 30px;
   width:100%;
   height: 100vh;
+  background-color: rgb(230, 230, 230);
+  overflow: hidden;
+}
+
+.row{
+  padding: 20px;
 }
 
 .buttonGroup {

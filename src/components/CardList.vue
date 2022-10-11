@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="category">
         <div class="textBody">
             <b-card-text class="text">{{content}}</b-card-text>
             <div class="iconGroup">
