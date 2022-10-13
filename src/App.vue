@@ -167,9 +167,9 @@ export default {
         "content": taskEntered
       });
     },
-    categoryChange(taskId){
+    categoryChange(){
       //detect data for the lists that i wanted to move
-      console.log(taskId)
+      console.log("derp")
     },
     startendPoint(taskId){
       //find the start point and end point

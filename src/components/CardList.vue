@@ -3,14 +3,14 @@
         <div class="textBody">
             <b-card-text class="text">{{content}}</b-card-text>
             <div class="iconGroup">
-                <b-icon class="editIcon" @click="editMode" icon="pencil-fill"></b-icon>
-                <b-icon class="deleteIcon" @click="deleteTask" icon="trash-fill"></b-icon>
+                <b-icon class="editIcon" @click="editMode" title="Edit Task" icon="pencil-fill"></b-icon>
+                <b-icon class="deleteIcon" @click="deleteTask" title="Delete Task" icon="trash-fill"></b-icon>
             </div>    
         </div>
         <div v-show="!editStatus" class="editBody">
             <b-form-input id="editInput" v-model="enteredEdit" type="text" placeholder="Enter Task" required></b-form-input>
-            <b-button class="editButton" @click="editTask" variant="warning"><b-icon icon="check" style="width: 24px; height: 24px;"></b-icon></b-button>
-            <b-button class="cancelButton" @click="editMode" variant="danger"><b-icon icon="x" style="width: 24px; height: 24px;"></b-icon></b-button>
+            <b-button class="editButton" @click="editTask" title="Confirm Edit" variant="warning"><b-icon icon="check" style="width: 24px; height: 24px;"></b-icon></b-button>
+            <b-button class="cancelButton" @click="editMode" title="Cancel Edit" variant="danger"><b-icon icon="x" style="width: 24px; height: 24px;"></b-icon></b-button>
         </div>
     </div>
 </template>
@@ -60,12 +60,12 @@ export default {
         justify-content: space-between;
         background-color: grey;
         color: white;
-        padding: 15px;
         border-radius: 5px;
-        margin: 10px 0;
+        margin: 5px 0;
         align-items: center;
+        padding: 10px
     }
-        
+    
     .textBody:hover{
         background-color: rgb(204, 204, 204);
         color: rgb(31, 31, 33);
@@ -78,6 +78,7 @@ export default {
     .text{
         margin: auto 0 ;
         word-break: break-word;
+        text-align: left;
     }
 
     .iconGroup{
